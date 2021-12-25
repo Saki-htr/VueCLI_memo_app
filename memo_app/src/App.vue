@@ -1,17 +1,35 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div class="container">
+     <ul class="memo-list">
+       <!-- メモ一覧 -->
+     </ul>
+    <button @click="toggleEditForm">＋</button>
+
+    <div v-if="showEditForm">
+      <EditForm />
+    </div>
+
+  </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import EditForm from './components/EditForm.vue'
 
 export default {
   name: 'App',
-  components: {
-    HelloWorld
+  components: { EditForm },
+  data() {
+    return {
+      showEditForm: false
+    }
+  },
+  methods: {
+    toggleEditForm() {
+      this.showEditForm = !this.showEditForm
+    }
   }
 }
+
 </script>
 
 <style>
