@@ -6,6 +6,7 @@
 
     <!-- デバッグ用 -->
     <p>tempMemo: {{ tempMemo }}</p>
+    <p>memoList: {{memoList}}</p>
   </div>
 
 </template>
@@ -21,6 +22,7 @@ export default {
   },
   mounted() {
     this.memoList = JSON.parse(localStorage.getItem('items') || '[]')
+    this.$emit('parentMethod',this.memoList)
   },
   methods: {
     saveList() {
@@ -31,7 +33,7 @@ export default {
       if (!value) {
         return
       }
-      this.memoList.push({ id: Math.random().toString(), content: this.tempMemo })
+      this.memoList.push({ id: Math.random().toString(),title: this.tempMemo.split('\n')[0], content: this.tempMemo })
       console.log(this.memoList)
       this.tempMemo = ''
       this.saveList();

@@ -1,12 +1,16 @@
 <template>
   <div class="container">
      <ul class="memo-list">
-       <!-- メモ一覧 -->
+        <li class="memo" v-for="memo in memoList" :key="memo.id">
+          <div class="view">
+            <label>{{memo.title}}</label>
+          </div>
+        </li>
      </ul>
     <button @click="toggleEditForm">＋</button>
 
     <div v-if="showEditForm">
-      <EditForm />
+      <EditForm @parentMethod="getMemoList" />
     </div>
 
   </div>
@@ -20,12 +24,16 @@ export default {
   components: { EditForm },
   data() {
     return {
-      showEditForm: false
+      showEditForm: false,
+      memoList: ''
     }
   },
   methods: {
     toggleEditForm() {
       this.showEditForm = !this.showEditForm
+    },
+    getMemoList(memoList) {
+      this.memoList = memoList
     }
   }
 }
