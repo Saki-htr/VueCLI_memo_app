@@ -1,3 +1,4 @@
+fetchStorage()
 <template>
   <div class="form">
     <textarea class="edit-memo" v-model="tempMemo" required></textarea>
@@ -5,8 +6,7 @@
     <button>削除</button>
 
     <!-- デバッグ用 -->
-    <p>tempMemo: {{ tempMemo }}</p>
-    <p>memoList: {{memoList}}</p>
+    <p>memoList: {{ memoList }}</p>
   </div>
 
 </template>
@@ -21,12 +21,12 @@ export default {
     }
   },
   mounted() {
-    this.memoList = JSON.parse(localStorage.getItem('items') || '[]')
-    this.$emit('parentMethod',this.memoList)
+    this.memoList = JSON.parse(localStorage.getItem(this.STORAGE_KEY) || '[]')
+    this.$emit('giveMemoList',this.memoList)
   },
   methods: {
     saveList() {
-      localStorage.setItem('memoList', JSON.stringify(this.memoList))
+      localStorage.setItem(this.STORAGE_KEY, JSON.stringify(this.memoList))
     },
     addMemo() {
       const value = this.tempMemo && this.tempMemo.trim()

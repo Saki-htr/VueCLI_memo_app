@@ -10,7 +10,7 @@
     <button @click="toggleEditForm">＋</button>
 
     <div v-if="showEditForm">
-      <EditForm @parentMethod="getMemoList" />
+      <EditForm @giveMemoList="getMemoList" />
     </div>
 
   </div>
