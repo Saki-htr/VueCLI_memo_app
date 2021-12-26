@@ -1,41 +1,15 @@
 <template>
-  <div class="container">
-     <ul class="memo-list">
-        <li class="memo" v-for="memo in memoList" :key="memo.id">
-          <div class="view">
-            <label>{{memo.title}}</label>
-          </div>
-        </li>
-     </ul>
-    <button @click="toggleEditForm">＋</button>
-
-    <div v-if="showEditForm">
-      <EditForm @giveMemoList="getMemoList" />
-    </div>
-
-  </div>
+  <Memos />
 </template>
 
 <script>
-import EditForm from './components/EditForm.vue'
+import Memos from './components/Memos.vue'
 
 export default {
   name: 'App',
-  components: { EditForm },
-  data() {
-    return {
-      showEditForm: false,
-      memoList: ''
-    }
-  },
-  methods: {
-    toggleEditForm() {
-      this.showEditForm = !this.showEditForm
-    },
-    getMemoList(memoList) {
-      this.memoList = memoList
-    }
-  }
+  components: { Memos },
+  data() { },
+  methods: { }
 }
 
 </script>
