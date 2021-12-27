@@ -14,14 +14,14 @@
       <div v-if="formMode === 'add'">
         <h2>Add Memo</h2>
         <textarea v-model="tempMemo" required></textarea>
-        <button @click="addMemo">保存</button>
-        <button @click="cancelAdd">削除</button>
+        <button @click="addMemo">save</button>
+        <button @click="cancelAdd">remove</button>
       </div>
       <div v-else-if="formMode === 'edit'">
         <h2>Edit Memo</h2>
         <textarea v-model="editedMemo"></textarea>
-        <button @click="doneEdit(editIndex)">更新</button>
-        <button @click="removeMemo(editIndex)">削除</button>
+        <button @click="doneEdit(editIndex)">update</button>
+        <button @click="removeMemo(editIndex)">remove</button>
       </div>
     </div>
   </div>
@@ -90,8 +90,12 @@ export default {
 
 <style>
 textarea {
-  width: 200px;
-  height: 5em;
+  /* width: 200px;
+  height: 5em; */
+}
+
+ul {
+  list-style: none;
 }
 
 </style>
