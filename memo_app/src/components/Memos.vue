@@ -18,6 +18,7 @@
         <button @click="cancelAdd">削除</button>
       </div>
       <div v-else-if="formMode === 'edit'">
+        <h2>Edit Memo</h2>
         <textarea v-model="editedMemo"></textarea>
         <button @click="doneEdit(editIndex)">更新</button>
         <button @click="removeMemo(editIndex)">削除</button>
@@ -62,9 +63,7 @@ export default {
       this.formMode = 'add'
     },
     editMemo(memo, index){
-      console.log(index)
-
-      this.showFormToggle = true
+      this.showFormToggle = !this.showFormToggle
       this.formMode = 'edit'
       this.editIndex = index
       this.editedMemo = memo.content
