@@ -1,20 +1,21 @@
 <template>
   <div class="container">
     <h1>My Memos</h1>
-     <ul class="memo-list">
+      <ul class="memo-list">
         <li class="memo" v-for="(memo,index) in memoList" :key="memo.id">
           <div class="view">
             <label @click="editMemo(memo, index)">{{memo.content.split('\n')[0]}}</label>
           </div>
         </li>
-     </ul>
-    <button @click="showAddForm">＋</button>
+      </ul>
+     <button @click="showAddForm">＋</button>
 
     <div v-if="showFormToggle">
       <div v-if="formMode === 'add'">
+        <h2>Add Memo</h2>
         <textarea v-model="tempMemo" required></textarea>
         <button @click="addMemo">保存</button>
-        <button>削除</button>
+        <button @click="cancelAdd">削除</button>
       </div>
       <div v-else-if="formMode === 'edit'">
         <textarea v-model="editedMemo"></textarea>
@@ -79,6 +80,10 @@ export default {
       this.memoList.splice(index,1)
       this.saveList()
       this.showFormToggle = !this.showFormToggle
+    },
+    cancelAdd() {
+      this.tempMemo = ''
+      this.showFormToggle = false
     }
   }
 }
