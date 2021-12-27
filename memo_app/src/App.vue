@@ -7,11 +7,8 @@ import Memos from './components/Memos.vue'
 
 export default {
   name: 'App',
-  components: { Memos },
-  data() { },
-  methods: { }
+  components: { Memos }
 }
-
 </script>
 
 <style>

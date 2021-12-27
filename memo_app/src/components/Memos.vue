@@ -4,24 +4,27 @@
       <ul class="memo-list">
         <li class="memo" v-for="(memo,index) in memoList" :key="memo.id">
           <div class="view">
-            <label @click="editMemo(memo, index)">{{memo.content.split('\n')[0]}}</label>
+            <label @click="editMemo(memo, index)">{{ memo.content.split('\n')[0] }}</label>
           </div>
         </li>
       </ul>
-     <button @click="showAddForm">＋</button>
-
+     <button class="add-button" @click="showAddForm">＋</button>
     <div v-if="showFormToggle">
       <div v-if="formMode === 'add'">
         <h2>Add Memo</h2>
-        <textarea v-model="tempMemo" required></textarea>
-        <button @click="addMemo">save</button>
-        <button @click="cancelAdd">remove</button>
+          <textarea v-model="tempMemo" required></textarea>
+          <div class="form-button">
+            <button class="common-button" @click="addMemo">save</button>
+            <button class="common-button" @click="cancelAdd">remove</button>
+          </div>
       </div>
       <div v-else-if="formMode === 'edit'">
         <h2>Edit Memo</h2>
         <textarea v-model="editedMemo"></textarea>
-        <button @click="doneEdit(editIndex)">update</button>
-        <button @click="removeMemo(editIndex)">remove</button>
+        <div class="form-button">
+          <button class="common-button" @click="doneEdit(editIndex)">update</button>
+          <button class="common-button" @click="removeMemo(editIndex)">remove</button>
+        </div>
       </div>
     </div>
   </div>
@@ -89,13 +92,63 @@ export default {
 </script>
 
 <style>
+.container{
+  font-family: cursive;
+  color: #73586F;
+}
+
 textarea {
-  /* width: 200px;
-  height: 5em; */
+  width: 250px;
+  height: 7em;
+  color: #73586F;
+  background-color: #FFF9EE;
+  border-radius: 5px;
+  border: 2px solid #b1b5e6;
+  font-family: cursive;
+  font-weight: bold;
 }
 
-ul {
+.form-button {
+  text-align:center;
+}
+
+.common-button {
+  border: none;
+  background-color:#cccff3;
+  margin-top: 10px;
+  margin-right: 10px;
+  border-radius: 5px;
+  font-family: cursive;
+  font-size: 17px;
+  padding :3px 15px;;
+}
+
+.add-button {
+  border: none;
+  background-color:#F0C0C3;
+  border-radius: 5px;
+  padding: 5px 10px;
+  font-family: cursive;
+}
+
+h1 {
+  color: #EF858C;
+}
+
+h2 {
+  color: #8D93C8;
+}
+
+.memo-list{
   list-style: none;
+  padding-left: 0px;
+  font-size: 20px;
+
 }
 
+
+.memo:hover {
+  font-weight: bold;
+  font-size: 23px;
+}
 </style>
