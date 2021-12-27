@@ -4,7 +4,7 @@
      <ul class="memo-list">
         <li class="memo" v-for="(memo,index) in memoList" :key="memo.id">
           <div class="view">
-            <a href="#" @click="editMemo(memo, index)">{{memo.content.split('\n')[0]}}</a>
+            <label @click="editMemo(memo, index)">{{memo.content.split('\n')[0]}}</label>
           </div>
         </li>
      </ul>
