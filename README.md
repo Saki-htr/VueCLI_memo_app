@@ -1,19 +1,26 @@
-# memo_app
+# memo_app with VueCLI
 
-## Project setup
-```
-npm install
-```
+## このリポジトリについて
+フィヨルドブートキャンプのプラクティス「VueCLI」の課題です。
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+## 概要
+メモの追加・編集・削除ができるシンプルなWebアプリケーションです。
 
-### Compiles and minifies for production
-```
-npm run build
-```
+## 使い方
+### 追加
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+`+`ボタンをクリック後、フォームにメモ内容を入力し、`save`ボタンをクリックする。
+
+[![Image from Gyazo](https://i.gyazo.com/8cc9d10616952c7bc2fa71e13e715cdc.gif)](https://gyazo.com/8cc9d10616952c7bc2fa71e13e715cdc)
+
+### 編集
+- 編集したいメモをクリックすると、編集フォームが表示される。
+- 編集したら、`update`ボタンで更新する。
+- 編集をキャンセルしたければ、メモをもう一度クリックする。
+
+[![Image from Gyazo](https://i.gyazo.com/d20f678e6b16d60dc86e1e5403de8f94.gif)](https://gyazo.com/d20f678e6b16d60dc86e1e5403de8f94)
+
+### 削除
+削除したいメモをクリックし、`remove`ボタンをクリックする。
+
+[![Image from Gyazo](https://i.gyazo.com/08f4f5942f210c350acfe3c638bf65b0.gif)](https://gyazo.com/08f4f5942f210c350acfe3c638bf65b0)
