@@ -4,7 +4,7 @@
       <ul class="memo-list">
         <li class="memo" v-for="(memo,index) in memoList" :key="memo.id">
           <div class="view">
-            <label @click="editMemo(memo, index)">{{ memo.content.split('\n')[0] }}</label>
+            <label @click="editMemo(memo, index)">{{ memoTitle(memo.content) }}</label>
           </div>
         </li>
       </ul>
@@ -87,7 +87,12 @@ export default {
       this.tempMemo = ''
       this.showFormToggle = false
     }
+  },
+  computed: {
+    memoTitle: () => (content) => {
+      return content.split('\n')[0]
   }
+}
 }
 </script>
 
