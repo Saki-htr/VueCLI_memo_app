@@ -8,7 +8,7 @@
           </div>
         </li>
       </ul>
-     <button class="add-button" @click="showAddForm">＋</button>
+      <button class="add-button" @click="showAddForm">＋</button>
     <div v-if="showFormToggle">
       <div v-if="formMode === 'add'">
         <h2>Add Memo</h2>
@@ -33,7 +33,7 @@
 <script>
 export default {
   data() {
-    return{
+    return {
       tempMemo: '',
       STORAGE_KEY: 'memos-vuejs-3.0',
       memoList: [],
@@ -150,7 +150,6 @@ h2 {
   font-size: 20px;
 
 }
-
 
 .memo:hover {
   font-weight: bold;
