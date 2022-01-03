@@ -96,7 +96,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .container{
   font-family: cursive;
   color: #73586F;
